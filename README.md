@@ -5,6 +5,10 @@
 ## Objective
 * learn C basics
 
+## Implementation
+* [LPI](LPI)
+* [Formatting](Formatting)
+
 ## Primary Resources
 * The Linux Programming Interface: A Linux and UNIX System Programming Handbook [^lpi]
 * kernel.org [^kernel]
