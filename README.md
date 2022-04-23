@@ -1,4 +1,18 @@
-# C
-C notes
+# C notes
 
-## some Basic notes
+---
+
+## Objective
+* learn C basics
+
+## Primary Resources
+* The Linux Programming Interface: A Linux and UNIX System Programming Handbook [^lpi]
+* kernel.org [^kernel]
+
+
+
+
+---
+[^lpi]: Written by [Michael Kerrisk](https://en.wikipedia.org/wiki/The_Linux_Programming_Interface)
+
+[^kernel]: for [formatting](https://www.kernel.org/doc/html/v4.10/process/coding-style.html)
