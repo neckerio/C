@@ -6,7 +6,7 @@
 ### Selected System Data Types
 
 | Data Type    | SUSv3 Type Requirement    | Description |
-| :-:          | :-:                       | :-:         |
+| :--          | :--                       | :--         |
 | blkcnt_t     | signed integer            |             |
 | blksize_t    | signed integer            |             |
 | cc_t         | unsigned integer          |             |
