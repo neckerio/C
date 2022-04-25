@@ -15,6 +15,17 @@
 | 2               | standard error  | STDERR_FILENO | stderr       |
 
 
+### Useful Types
+* size_t
+	* <sys/types.h>
+	* Used  for a  count of bytes. It is the result of the sizeof operator. According to the C language standard, it shall be an unsigned integer type capable of storing values in the range [0, SIZE_MAX].
+
+* ssize_t
+	* <sys/types.h>
+	* Used for a count of bytes or an error indication.
+According to POSIX, it shall be a signed integer type capable of storing values at least in the range [-1, SSIZE_MAX]
+
+
 
 ### Syscalls
 * open()
@@ -68,6 +79,10 @@ int close(int fd);
 ```
 
 * lseek()
+	* Offset - point provided by kernel, where the next read() or write() commence
+	* expressed as an ordinal byte position relative to the start of the file
+	* the first byte of the file is at offset 0
+	* #include <unistd.h>
 * fd = file descriptor
 * offset = specifies value in byes - off_t = signed integer
 * whence = basepoint from which _offset_ will be interpreted:
@@ -77,7 +92,16 @@ int close(int fd);
 ```c
 off_t lseek(int fd, off_t offset, int whence);
 ```
-       
+
+
+* ioctl()
+	* General purpose mechanism to perform device/file operations beyond the syscalls defiend above.
+	* fd = open file descriptor to perform operations on using request
+	* request = specify control operations. Device-specific header files define constants that can be passed to request. The value of the request arg allows ioctl() to determine the type of value to expect in ...
+	* ... = optional, any type argument. Typically a pointer to an integer or struct
+```c
+int ioctl(int fd, unsigned long request, ...);
+```       
 
 
 ### Useful Directories/Files

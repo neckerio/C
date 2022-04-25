@@ -4,6 +4,7 @@
 * Make Directories per chapter
 
 ### Selected System Data Types
+* OR just man system_data_types
 
 | Data Type    | SUSv3 Type Requirement    | Description                                |
 | :--          | :--                       | :--                                        |
