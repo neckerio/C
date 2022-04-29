@@ -3,6 +3,28 @@
 ## Basic Idea
 * Make Directories per chapter
 
+### Useful Functions
+
+#### error_function.c
+*        int vsnprintf(char *restrict str, size_t size,
+ 		   const char *restrict format, va_list ap);
+*        int snprintf(char *restrict str, size_t size,
+ 		   const char *restrict format, ...);
+*        int fflush(FILE *stream);
+*        int fputs(const char *restrict s, FILE *restrict stream);
+*        void va_start(va_list ap, last);
+*        void va_end(va_list ap);
+*        int fprintf(FILE *restrict stream,
+ 		   const char *restrict format, ...);
+*        int strcmp(const char *s1, const char *s2);
+* 
+
+
+
+
+
+
+
 ### Selected System Data Types
 * OR just man system_data_types
 
