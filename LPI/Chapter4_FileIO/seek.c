@@ -5,9 +5,9 @@
 
 int main(int argc, char *argv[])
 {
-	size_t len;
-	int fd;
-	char *buff;
+	//size_t len;
+	int fd, ap;
+	//char *buff;
 	size_t numWritten;
 
 	fd = open(argv[1], O_RDWR | O_CREAT,
@@ -15,7 +15,15 @@ int main(int argc, char *argv[])
 	if (fd == -1)
 		errExit("open");
 
-	numWritten = write(fd, buff, len);
+	for (ap =2; ap < argc; ap++)
+	{
 
+	numWritten = write(fd, &argv[ap][1], strlen(&argv[ap][1]));
+	if (numWritten == -1)
+		errExit("write");
+	printf("%s: wrote %ld bytes\n", argv[ap], (long) numWritten);
+	}
+
+	return 0;
 
 }

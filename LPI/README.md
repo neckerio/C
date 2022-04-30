@@ -17,7 +17,10 @@
 *        int fprintf(FILE *restrict stream,
  		   const char *restrict format, ...);
 *        int strcmp(const char *s1, const char *s2);
-* 
+*        long strtol(const char *restrict nptr,
+ 		   char **restrict endptr, int base);
+*        size_t strlen(const char *s);
+ 
 
 
 
