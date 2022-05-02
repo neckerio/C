@@ -122,6 +122,13 @@ int ioctl(int fd, unsigned long request, ...);
 	* FILE *fopen
 * vfrprintf() - use a va_list
 
+### Put() variants
+* putchar()
+* putc() - to stream (in,out etc.)
+* fputc() - same as above...?
+* puts() - array to stdout. Replaces null at the end with a "\n"
+* fputs() - takes string param AND stdin/out etc. no "\n" added, will continue without a null terminator at the end of the string
+
 
 ---
 
