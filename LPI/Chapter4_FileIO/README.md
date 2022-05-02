@@ -123,12 +123,21 @@ int ioctl(int fd, unsigned long request, ...);
 	* FILE *fopen
 * vfrprintf() - use a va_list
 
+### Scanf()
+* only to whitespace, eof etc.
+
 ### Put() variants
 * putchar()
 * putc() - to stream (in,out etc.)
 * fputc() - same as above...?
 * puts() - array to stdout. Replaces null at the end with a "\n"
 * fputs() - takes string param AND stdin/out etc. no "\n" added, will continue without a null terminator at the end of the string
+
+
+### Get() variants
+* getch() - get one char from param(stdin)
+* fgetc() - one char from param(stream)
+* getc() - like fgetc, but this is CAN be implemented as a MACRO
 
 
 ---
