@@ -108,6 +108,21 @@ int ioctl(int fd, unsigned long request, ...);
 * /proc/PID/fdinfo, obtain FD info on any process
 	* pos = file offset
 	* flags = octal showing access mode flags and open file status flags
+
+
+
+
+
+---
+### This is just practicing printf() and its other variants.
+* printf()
+* sprintf() - print to character buffer
+* snprintf() - print to character buffer with explicit "N" size
+* fprintf() - write to "stream"
+	* FILE *fopen
+* vfrprintf() - use a va_list
+
+
 ---
 
 ## Notes
