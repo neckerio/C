@@ -8,6 +8,7 @@
 
 ### Useful Information
 * Standard File Descriptors
+
 | File Descriptor | Purpose         | POSIX name    | stdio stream |
 | :-:             | :-:             | :-:           | :-:          |
 | 0               | standard input  | STDIN_FILENO  | stdin        |
@@ -133,5 +134,6 @@ int ioctl(int fd, unsigned long request, ...);
 ---
 
 ## Notes
+1. use strcpy() and strcat() to add "\n" and trailing NULL to argv[] in fk_write.c
 
 
