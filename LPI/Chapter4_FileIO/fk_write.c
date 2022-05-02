@@ -19,7 +19,10 @@ int main(int argc, char *argv[])
 
 	for (ap = 2; ap < argc; ap++)
 	{	
-	numWritten = write(fd, &argv[ap][0], strlen(&argv[ap][0]));
+	char *newargv = malloc(strlen(&argv[ap][0]) + 2);
+	strcpy(newargv, &argv[ap][0]);
+	strcat(newargv, "\n");
+	numWritten = write(fd, newargv, strlen(newargv));
 	if (numWritten == -1)
 		errExit("write");
 	
