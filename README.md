@@ -8,7 +8,7 @@
 ## Implementation
 * [LPI](LPI)
 * [Formatting](Formatting)
-* [ASM](ASM)
+* [Disasm](Disasm)
 
 ## Primary Resources
 * The Linux Programming Interface: A Linux and UNIX System Programming Handbook [^lpi]
