@@ -674,7 +674,7 @@ A function designator (the identifier introduced by a function declaration) is a
 * comparison
 
 
-### Member Access Operator
+#### Member Access Operator
 * Member access operators allow access to the members of their operands.
 	* **Array Subscript** (a[b] - access the bth element of array a)
 		* pointer-expression [ integer-expression ] 
@@ -690,6 +690,49 @@ A function designator (the identifier introduced by a function declaration) is a
 		*  expression -> member-name 
 
  
+
+
+#### Bitwise Operators [^handmadehero]
+* Hex maps on well to Binary, every 4 binary bits corresponds to 1 Hex Digit(15). Useful for Bit shifting or Bitwise Operations. The actual shifting takes place in the REGISTERS, and is then copied into Memory. Pointer Arithmetic takes place in memory.  
+	* OPERATORS **<<** **>>**
+	* Below the Hex digit 0xA (10) will move over one space
+	* It would zero out at the end, I believe
+		* x = 0xA; (0x0000000a)		(00000**1010**)
+		* x = x << 4; (0x000000a0)	(0**1010**0000)
+		* x = x >> 4; (0x0000000a) 	(00000**1010**)
+	* Essentially it moves up in Powers of 2 of what the number was. When you shift by one to the left, you are multiplying by two. When you shift to the right by one you are dividing by two. A Shift is just a MULT/DIVIDE by the power of two that you specify (4 and 1 in the examples).
+		* x = 0xA; (10)		(0x0000000a)	(00000**1010**)
+		* x = x << 4; (10 * 4^2) (10 * 16 = 160)
+		* x = x >> 4; (160 / 4^2)(160/16 = 10) 	(0x0000000a) 	(00000**1010**)
+		* x = x << 1; (10 * 1^2) (10 * 2 = 20)	(0x00000014)	(0000**10100**)
+ 
+* OR and AND operators
+* OR sets bits to the value if either of the OPERANDS have the bit set. It is a way of Combining bits.
+* AND, sets bits to the value ONLY if BOTH of the OPERANDS have the bit set. Often used for MASKING; Remove all other bits from certain bit pattern
+	* OPERATORS **|** **&**
+		* x = 0;
+		* x = x | (1 << 4);
+			* (0x00000000) | (0x00000010) = (0x00000010)
+		* x = x | (1 << 8);
+			* (0x00000010) | (0x00000100) = (0x00000110)
+		* x = x & (1 << 4);
+			* (0x00000110) & (0x00000010) = (0x00000010)
+		* y = ((1 << 4 ) | (1 << 31)); 
+		* x = x & y; (0x00000010) (only the 4th bit was set)
+* NOT and XOR Operators
+* NOT will flip all the bits; the set bits become unset and the unset bits become set
+* XOR, EXCLUSIVE OR means that the Final Bit Value is set, ONLY IF ONE of the Variables has that bit set. IF both or neither have the bit set it is zero. Apparently, used to invert values back. Applying the same input a second time will undo the first.
+	* OPERATORS **~** **^**
+		* x = (1 << 4) | (1 << 8) | (1 << 16) | (1 << 20);
+			* (0x00110110)
+		* x = ~x; (0xffeefeef)
+		 
+		* x = (1 << 4) | (1 << 8);
+		* y = (1 << 8) | (1 << 16);
+		* x = x^y;	(0x00010010) (the 8th bit was zeroed out)
+		* x = x^y;	(0x00000110) (get the 8th bit back)
+
+
  
 ### Other Operators
 * function call:
@@ -705,7 +748,7 @@ A function designator (the identifier introduced by a function declaration) is a
 * _Alignof operator:
 	*  _Alignof(type) 
  
- 
+
  
 
 ---
@@ -724,3 +767,4 @@ A function designator (the identifier introduced by a function declaration) is a
 
 [^reference]: [reference](https://en.cppreference.com/w/c/language/declarations)
 [^geek]: taken from [geekforgeeks.org](https://www.geeksforgeeks.org/strict-aliasing-rule-in-c-with-examples/)
+[^handmadehero]: taken from a [Handmade Hero video](https://www.youtube.com/watch?v=Pb19uCFU2EA&list=PLEMXAbCVnmY6RverunClc_DMLNDd3ASRp&index=9)
