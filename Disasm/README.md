@@ -18,6 +18,45 @@
 * ESP - Stack Pointer
 
 
+---
+
+## GCC [^gcc]
+
+### Useful Information
+* Compilation can involve up to four stages: preprocessing, compilation proper, assembly and linking, always in that order. GCC is capable of preprocessing and compiling several files either into several assembler input files, or into one assembler input file; then each assembler input file produces an object file, and linking combines all the object files (those newly compiled, and those specified as input) into an executable file. 
+
+* For any given input file, the file name suffix determines what kind of compilation is done: 
+	* file.c - C source code that must be preprocessed.
+	* file.i - C source code that should not be preprocessed.
+	* file.h - C header file to be turned into a precompiled header (default), or C header file to be turned into an Ada spec (via the -fdump-ada-spec switch).
+
+* You can specify the input language explicitly with the -x option: 
+	* -x language
+
+* If you only want some of the stages of compilation, you can use -x (or filename suffixes) to tell gcc where to start, and one of the options -c, -S, or -E to say where gcc is to stop. Note that some combinations (for example, ‘-x cpp-output -E’) instruct gcc to do nothing at all.
+	* -c - Compile or assemble the source files, but do not link. The linking stage simply is not done. The ultimate output is in the form of an object file for each source file. By default, the object file name for a source file is made by replacing the suffix ‘.c’, ‘.i’, ‘.s’, etc., with ‘.o’. 
+	* -S - Stop after the stage of compilation proper; do not assemble. The output is in the form of an assembler code file for each non-assembler input file specified. By default, the assembler file name for a source file is made by replacing the suffix ‘.c’, ‘.i’, etc., with ‘.s’. 
+	* -E - Stop after the preprocessing stage; do not run the compiler proper. The output is in the form of preprocessed source code, which is sent to the standard output.
+
+
+
+### Language Standards 
+* -std=c89 -- select 89 standard
+* -std=c99 -- select 99 standard
+* -std=c11 -- select 2011 standard
+* -std=c17 -- select 2017 standard
+* -std=c2x -- select ~2022 standard
+* -std=gnu90 -- select GNU 90 GCC extensions
+* -std=gnu11 -- select GNU 2011 GCC extensions
+* -std=gnu17 -- select GNU 2017 GCC extensions, the default
+* -pedantic -- obtain all diagnostics required by the standard
+* -pednantic-errors -- treat them as errors
+
+* __STDC_HOSTED__ = hosted environment at 1
+* -freestanding -- __STDC_HOSTED__ = freestanding environment at 0
+* Most GCC routines at **libgcc**
+
+*
 
 ---
 
@@ -339,27 +378,6 @@ select whichever frame you are interested in.
 
 ---
 
-## GCC
-
-### Useful Information
-* Compilation can involve up to four stages: preprocessing, compilation proper, assembly and linking, always in that order. GCC is capable of preprocessing and compiling several files either into several assembler input files, or into one assembler input file; then each assembler input file produces an object file, and linking combines all the object files (those newly compiled, and those specified as input) into an executable file. 
-
-* For any given input file, the file name suffix determines what kind of compilation is done: 
-	* file.c - C source code that must be preprocessed.
-	* file.i - C source code that should not be preprocessed.
-	* file.h - C header file to be turned into a precompiled header (default), or C header file to be turned into an Ada spec (via the -fdump-ada-spec switch).
-
-* You can specify the input language explicitly with the -x option: 
-	* -x language
-
-* If you only want some of the stages of compilation, you can use -x (or filename suffixes) to tell gcc where to start, and one of the options -c, -S, or -E to say where gcc is to stop. Note that some combinations (for example, ‘-x cpp-output -E’) instruct gcc to do nothing at all.
-	* -c - Compile or assemble the source files, but do not link. The linking stage simply is not done. The ultimate output is in the form of an object file for each source file. By default, the object file name for a source file is made by replacing the suffix ‘.c’, ‘.i’, ‘.s’, etc., with ‘.o’. 
-	* -S - Stop after the stage of compilation proper; do not assemble. The output is in the form of an assembler code file for each non-assembler input file specified. By default, the assembler file name for a source file is made by replacing the suffix ‘.c’, ‘.i’, etc., with ‘.s’. 
-	* -E - Stop after the preprocessing stage; do not run the compiler proper. The output is in the form of preprocessed source code, which is sent to the standard output.
-
-
----
-
 ## Linking and Loading [^linkers]
 
 ### Useful Information
@@ -367,5 +385,6 @@ select whichever frame you are interested in.
 
 
 ---
+[^gcc]: provided by [GNU](https://gcc.gnu.org/onlinedocs/)
 [^gdb]: provided by [GNU](https://www.sourceware.org/gdb/documentation/)
 [^linkers]: Notes from [Linkers and Loaders by John R. Levine](https://www.johnlevine.com/books.phtml)
