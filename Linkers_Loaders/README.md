@@ -112,7 +112,43 @@
 * On the 8086, 186, and 286, many instructions required its operands in specific registers, but on the 386 and later chips, most but not all of the functions that required specific registers have been generalized to use any register. The ESP is the hardware stack pointer, and always contains the address of the current stack. The EBP pointer is usually used as a frame register that points to the base of the current stack frame. (The instruction set encourages but doesn’t require this.)
 
 
-
+#### intex x86
+* It features an asymmetrical instruction set and segmented addresses. There are six 32 bit general purpose registers named:
+	* EAX
+	* EBX
+	* ECX
+	* EDX
+	* ESI
+	* EDI
+* as well as two registers used primarily for addressing:
+	* EBP
+	* ESP
+* and six specialized 16 bit segment registers
+	* CS
+	* DS
+	* ES
+	* FS
+	* GS
+	* SS.
+* The low half of each of the 32 bit registers can be used as 16 bit registers called: 		
+	* AX
+	* BX
+	* CX
+	* DX
+	* SI
+	* DI
+	* BP
+	* SP
+* and the low and high bytes of each of the AX through DX registers are eight-bit registers called:
+	* AL
+	* AH
+	* BL
+	* BH
+	* CL
+	* CH
+	* DL
+	* DH
+* On the 8086, 186, and 286, many instructions required its operands in specific registers, but on the 386 and later chips, most but not all of the functions that required specific registers have been generalized to use any register.  The ESP is the hardware stack pointer, and always contains the address of the current stack. The EBP pointer is usually used as a frame register that points to the base of the current stack frame. (The instruction set encour- ages but doesn’t require this.)
 
 
 
