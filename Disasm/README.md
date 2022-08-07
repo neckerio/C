@@ -4,6 +4,12 @@
 
 ## Sources
 * [swansontec](https://www.swansontec.com/sregisters.html) for register names
+* [pwndbg](https://github.com/pwndbg/pwndbg) an interface for gdb
+	- For rust
+		* install
+		* echo "source /path/to/gdbinit.py" >> ~/.gdbinit
+		* OPEN GDB
+		* pwngdb> set lang c
 
 ---
 
